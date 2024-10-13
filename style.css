@@ -1,0 +1,107 @@
+/* 공통 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 전체 배경 설정 */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    background-image: url('images/bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 게임 컨테이너 스타일 */
+#game-container {
+    position: relative;
+    width: 400px;
+    height: 600px;
+    border: 2px solid #000;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+/* 타일 스타일 */
+.tile {
+    width: 100px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    top: -150px;
+    cursor: pointer;
+}
+
+/* 점수 표시 스타일 */
+#score {
+    margin-top: 20px;
+    font-size: 20px;
+    color: black;
+    transition: color 0.5s ease-in-out, font-size 0.5s ease-in-out;
+}
+
+/* 애니메이션 */
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.3);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.bounce {
+    animation: bounce 0.5s ease;
+}
+
+/* 시작 버튼 스타일 */
+#start-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* 반응형 디자인 적용 */
+@media (max-width: 480px) {
+    /* 게임 컨테이너 크기 조정 */
+    #game-container {
+        width: 100%;
+        height: 80vh;
+        border: none; /* 작은 화면에서는 테두리를 제거 */
+    }
+
+    /* 타일 크기 조정 */
+    .tile {
+        width: 22%;
+        height: auto; /* 높이를 자동으로 조절 */
+        aspect-ratio: 2 / 3; /* 가로 세로 비율 유지 */
+    }
+
+    /* 점수 표시 크기 조정 */
+    #score {
+        font-size: 1.2em;
+    }
+
+    /* 시작 버튼 크기 조정 */
+    #start-button {
+        font-size: 1em;
+        padding: 8px 16px;
+    }
+}
